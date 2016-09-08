@@ -1,0 +1,18 @@
+extends layout.pug
+
+block content
+	h1.text-center.stitched Contact Pug Pizza
+	form(method='POST')
+		.form-group
+			label.contactForm(for='name') Name
+			input.form-control#name(placeholder="Pug Preston", type='text', name='name')
+		.form-group
+			label.contactForm(for='email') Email Address
+			input.form-control#email(placeholder="pugmaster@pug.pug", type='email', name='email')
+		.form-group
+			label.contactForm(for='phone') Phone Number
+			input.form-control#phone(placeholder="1-800-PRO-PUGS", type='tel', name='phone',)
+		.form-group
+			label.contactForm(for='message') Comment
+			textarea.form-control#message(rows="12", placeholder="I think you need more pizza and more pugs...", name='message')
+		button.btn.btn-success.btn-lg(type="submit") Submit

@@ -1,0 +1,126 @@
+body {
+	background: #FDF3E7;
+}
+
+#pugPizza {
+	margin-top: 30px;
+	border-radius: 100%;
+	box-shadow: 0 0 0 4px #3B3738, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+	text-shadow: -1px -1px #3B3738;
+	height: 550px;
+}
+
+#pugPizza:hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.pizzaNav {
+	margin-bottom: 70px;
+}
+
+.mainDiv {
+	margin-top: 150px;
+}
+
+.aboutPizza {
+	margin-top: 30px;
+	font-size: 130%;
+}
+
+.contactForm {
+	margin-top: 10px;
+}
+
+.pugNavImg {
+	height: 55px;
+	/*margin-top: 3px;*/
+  margin-right: 6px;
+	border-radius: 100%;
+}
+
+.navEl {
+  border-radius: 20%;
+  margin: 0 3px;
+  font-size: 120%;
+}
+
+.aboutPugImg {
+	height: 150px;
+	margin-top: 15px;
+	border-radius: 100%;
+	box-shadow: 0 0 0 4px #3B3738, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+	text-shadow: -1px -1px #3B3738;
+}
+
+.nestedNav {
+  margin: 10px 0;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.stitched {
+   padding: 20px;
+   margin: 10px;
+   background: #3B3738;
+   color: #fff;
+   font-size: 21px;
+   font-weight: bold;
+   line-height: 1.3em;
+   border: 2px dashed #fff;
+   border-radius: 10px;
+   box-shadow: 0 0 0 4px #3B3738, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #3B3738;
+   font-weight: normal;
+}
+
+.corners { 
+  background: #f6f6f6;
+  height: 700px;
+  margin: 50px auto;
+  max-width: 600px;
+  position: relative;
+  width: 80%;
+  box-shadow: 0 1px 7px hsla(0, 0%, 0%, 0.2);
+  border-radius: 2%;
+}
+/* Corner Effect */
+.corners:after,
+.corners:before {
+  background: #e6e6e6;
+  content: '';
+  height: 50px;
+  position: absolute;
+  top: -25px;
+  width: 100px;
+  box-shadow: 0 5px 10px -7px hsla(0, 0% ,0%, 0.5);
+  border-radius: 10%;
+}
+.corners:after {
+  left: -50px;
+  transform: rotate(-45deg);
+  border-radius: 10%;
+}
+.corners:before {
+  right: -50px;
+  transform: rotate(45deg);
+  border-radius: 10%;
+}

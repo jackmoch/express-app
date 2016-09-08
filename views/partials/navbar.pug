@@ -1,0 +1,18 @@
+nav.navbar.navbar-default.navbar-fixed-top.pizzaNav
+	.container.nestedNav
+		.navbar-header
+			button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar')
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+
+		#navbar.collapse.navbar-collapse
+			ul.nav.navbar-nav
+				li
+					img.pugNavImg(src='http://66.media.tumblr.com/tumblr_lhd19bBcDX1qgx2mxo1_500.jpg')
+				li(class=title || 'active')
+					a.navEl(href='/') Home
+				li(class=title === 'About' ? 'active' : '')
+					a.navEl(href='/about') About
+				li(class=title === 'Contact' ? 'active' : '')
+					a.navEl(href='/contact') Contact
