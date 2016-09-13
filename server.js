@@ -6,7 +6,14 @@ const {
   cyan, 
   red
 } = require('chalk')
+const { MongoClient: { connect } } = require('mongodb')
+
+const MONGODB_URL = 'mongodb://localhost:27017/pugpizza'
+
+let db = connect(MONGODB_URL).then(_db => db = _db).catch(console.error)
+
 const routes = require('./routes/') // same as ./routes/index.js
+
 const app = express()
 
 const port = process.env.PORT || 3000
@@ -47,6 +54,11 @@ app.use((err, { method, url, headers: { 'user-agent': agent } }, res, next) => {
 	console.error(`[${timeStamp}] "${red(`${method} ${url}`)}" Error (${red(`${res.statusCode}`)}): "${red(`${res.statusMessage}`)}"`)
 })	
 
-app.listen(port, () => {
-  console.log(`Express server listening on port ${port}`)
-})
+connect(MONGODB_URL)
+  .then(_db => db = _db)
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Express server listening on port ${port}`)
+    })
+  })
+  .catch(console.error)
