@@ -50,7 +50,7 @@ app.use((err, { method, url, headers: { 'user-agent': agent } }, res, next) => {
 	console.error(`[${timeStamp}] "${red(`${method} ${url}`)}" Error (${red(`${res.statusCode}`)}): "${red(`${res.statusMessage}`)}"`)
 })	
 
-connect(MONGODB_URL)
+connect()
   .then(() => {
     app.listen(port, () => {
       console.log(`Express server listening on port ${port}`)
