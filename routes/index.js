@@ -22,7 +22,7 @@ router.get('/contact', (req, res) => {
 })
 
 router.post('/contact', (req, res) => {
-	db.collection('contact')
+	db().collection('contact')
 		.insertOne(req.body)
 		.then(() => res.redirect('/'))
 		.catch(res.send('BAD'))
