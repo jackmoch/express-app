@@ -3,25 +3,30 @@
 const { Router } = require('express')
 const router = Router()
 
-router.get('/', (req, res) => {
-  res.render('home')
-})
+module.exports = function(db) {
 
-router.get('/about', (req, res) => {
-  res.render('about', {
-    title: 'About'
-  })
-})
+	router.get('/', (req, res) => {
+	  res.render('home')
+	})
 
-router.get('/contact', (req, res) => {
-  res.render('contact', {
-    title: 'Contact'
-  })
-})
+	router.get('/about', (req, res) => {
+	  res.render('about', {
+	    title: 'About'
+	  })
+	})
 
-router.post('/contact', (req, res) => {
-  console.log(req.body)
-  res.redirect('/')
-})
+	router.get('/contact', (req, res) => {
+	  res.render('contact', {
+	    title: 'Contact'
+	  })
+	})
 
-module.exports = router
+	router.post('/contact', (req, res) => {
+		db.collection('contact')
+			.insertOne(req.body)
+			.then(() => res.redirect('/'))
+			.catch(res.send('BAD'))
+	})
+
+	return router
+} 
