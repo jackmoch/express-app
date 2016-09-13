@@ -6,7 +6,10 @@ const {
   cyan, 
   red
 } = require('chalk')
+
 const routes = require('./routes/') // same as ./routes/index.js
+const { connect } = require('./database')
+
 const app = express()
 
 const port = process.env.PORT || 3000
@@ -47,6 +50,10 @@ app.use((err, { method, url, headers: { 'user-agent': agent } }, res, next) => {
 	console.error(`[${timeStamp}] "${red(`${method} ${url}`)}" Error (${red(`${res.statusCode}`)}): "${red(`${res.statusMessage}`)}"`)
 })	
 
-app.listen(port, () => {
-  console.log(`Express server listening on port ${port}`)
-})
+connect()
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Express server listening on port ${port}`)
+    })
+  })
+  .catch(console.error)
