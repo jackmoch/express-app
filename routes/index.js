@@ -25,7 +25,7 @@ router.post('/contact', (req, res) => {
 	db().collection('contact')
 		.insertOne(req.body)
 		.then(() => res.redirect('/'))
-		.catch(res.send('BAD'))
+		.catch(() => res.send('BAD'))
 })
 
 module.exports = router
