@@ -14,10 +14,10 @@ block content
 			input.form-control#phone(placeholder="1-800-PRO-PUGS" type='tel' name='phone')
 		.form-group
 			label.contactForm(for='size') Size
-			select.form-control#size
-				option.disable
-				option(value='10') Small: 10"
-				option(value='12') Medium: 12"
-				option(value='14') Large: 14"
-				option(value='1776') 'Murica: 1776"
+			select.form-control#size(name='size')
+				option
+				option(value=10) Small: 10"
+				option(value=12) Medium: 12"
+				option(value=14) Large: 14"
+				option(value=1776) 'Murica: 1776"
 		button.btn.btn-success.btn-lg(type="submit") Submit
