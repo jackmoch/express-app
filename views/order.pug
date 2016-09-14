@@ -18,4 +18,11 @@ block content
 				option Select a size
 				each size in sizes
 					option(value=size.inches) #{size.name} : #{size.inches}"
+		.form-group
+			label.contactForm(for='toppings') Toppings
+				each topping in toppings
+					.checkbox
+						label(for='toppings')
+							input(type='checkbox' name='toppings' value=topping.name)
+							| #{topping.name}
 		button.btn.btn-success.btn-lg(type="submit") Submit
