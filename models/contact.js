@@ -1,6 +1,6 @@
 'use strict';
 
-const { model } = require('mongoose')
+const mongoose = require('mongoose')
 
 module.exports = mongoose.model('Contact', {
 	name: String,
