@@ -21,11 +21,11 @@ router.get('/contact', (req, res) => {
   })
 })
 
-router.post('/contact', (req, res) => {
-	const msg = new Contact(req.body)
-	msg.save()
-		.then(() => res.redirect('/'))
-		.catch(() => res.send('BAD'))
+router.post('/contact', (req, res, error) => {
+	Contact
+	.create(req.body)
+	.then(() => res.redirect('/'))
+	.catch(error)
 })
 
 router.get('/order', (req, res) => {
@@ -34,11 +34,11 @@ router.get('/order', (req, res) => {
 	})
 })
 
-router.post('/order', (req, res) => {
-	const msg = new Order(req.body)
-	msg.save()
-		.then(() => res.redirect('/'))
-		.catch(() => res.send('BAD'))
+router.post('/order', (req, res, error) => {
+	Order
+	.create(req.body)
+	.then(() => res.redirect('/'))
+	.catch(error)	
 })
 
 module.exports = router
