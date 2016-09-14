@@ -1,7 +1,7 @@
 extends layout.pug
 
 block content
-	h1.text-center.stitched Contact Pug Pizza
+	h1.text-center.stitched Order Pug Pizza
 	form(method='POST')
 		.form-group
 			label.contactForm(for='name') Name
@@ -13,6 +13,11 @@ block content
 			label.contactForm(for='phone') Phone Number
 			input.form-control#phone(placeholder="1-800-PRO-PUGS" type='tel' name='phone')
 		.form-group
-			label.contactForm(for='message') Comment
-			textarea.form-control#message(rows="12" placeholder="I think you need more pizza and more pugs..." name='message')
+			label.contactForm(for='size') Size
+			select.form-control#size
+				option.disable
+				option(value='10') Small: 10"
+				option(value='12') Medium: 12"
+				option(value='14') Large: 14"
+				option(value='1776') 'Murica: 1776"
 		button.btn.btn-success.btn-lg(type="submit") Submit

@@ -10,13 +10,13 @@ router.get('/', (req, res) => {
 
 router.get('/about', (req, res) => {
   res.render('about', {
-    title: 'About'
+    page: 'About'
   })
 })
 
 router.get('/contact', (req, res) => {
   res.render('contact', {
-    title: 'Contact'
+    page: 'Contact'
   })
 })
 
@@ -25,6 +25,12 @@ router.post('/contact', (req, res) => {
 	msg.save()
 		.then(() => res.redirect('/'))
 		.catch(() => res.send('BAD'))
+})
+
+router.get('/order', (req, res) => {
+	res.render('order', {
+		page: 'Order'
+	})
 })
 
 module.exports = router

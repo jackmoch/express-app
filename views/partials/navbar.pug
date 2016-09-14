@@ -10,9 +10,11 @@ nav.navbar.navbar-default.navbar-fixed-top.pizzaNav
 			ul.nav.navbar-nav
 				li
 					img.pugNavImg(src='http://66.media.tumblr.com/tumblr_lhd19bBcDX1qgx2mxo1_500.jpg')
-				li(class=title || 'active')
+				li(class=page || 'active')
 					a.navEl(href='/') Home
-				li(class=title === 'About' ? 'active' : '')
+				li(class=page === 'About' ? 'active' : '')
 					a.navEl(href='/about') About
-				li(class=title === 'Contact' ? 'active' : '')
+				li(class=page === 'Contact' ? 'active' : '')
 					a.navEl(href='/contact') Contact
+				li(class=page === 'Order' ? 'active' : '')
+					a.navEl(href='/order') Order
