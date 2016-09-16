@@ -5,17 +5,17 @@ block content
 	form(method='POST')
 		.form-group
 			label.contactForm(for='name') Name
-			input.form-control#name(placeholder="Pug Preston" type='text' name='name')
+			input.form-control#name(placeholder="Pug Preston" type='text' name='name' required)
 		.form-group
 			label.contactForm(for='email') Email Address
-			input.form-control#email(placeholder="pugmaster@pug.pug" type='email' name='email')
+			input.form-control#email(placeholder="pugmaster@pug.pug" type='email' name='email' required)
 		.form-group
 			label.contactForm(for='phone') Phone Number
-			input.form-control#phone(placeholder="1-800-PRO-PUGS" type='tel' name='phone')
+			input.form-control#phone(placeholder="1-800-PRO-PUGS" type='tel' name='phone' required)
 		.form-group
 			label.contactForm(for='size') Size
-			select.form-control#size(name='size')
-				option Select a size
+			select.form-control#size(name='size' required)
+				option(disabled selected) Select a size
 				each size in sizes
 					option(value=size.inches) #{size.name} : #{size.inches}"
 		.form-group
