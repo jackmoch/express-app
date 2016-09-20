@@ -1,0 +1,14 @@
+extends layout.pug
+
+block content
+	h1.text-center.stitched Order Pug Pizza
+	if msg
+		h2= msg
+	form(method='POST')
+		.form-group
+			label.contactForm(for='email') Email Address
+			input.form-control#email(placeholder="pugmaster@pug.pug" type='email' name='email' required)
+		.form-group
+			label.contactForm(for='name') Password
+			input.form-control#password(placeholder="**************" type='text' name='password' required)
+		button.btn.btn-success.btn-lg(type="submit") Login
