@@ -1,0 +1,9 @@
+extends layout.pug
+
+block content
+  h1.text-center.stitched Are you sure you want to logout?
+  .login-form
+    form(method='POST')
+      .logout-form__submit
+        a.btn.btn-danger.btn-lg(href='/') Cancel
+        input.btn.btn-success.btn-lg(type='submit' value='Logout')

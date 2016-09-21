@@ -19,5 +19,11 @@ nav.navbar.navbar-default.navbar-fixed-top.pizzaNav
 				li(class=page === 'Order' ? 'active' : '')
 					a.navEl(href='/order') Order
 			ul.nav.navbar-nav.navbar-right
-				li(class=page === 'Login' ? 'active' : '')
-					a.navEl(href='/login') Login
+				if email
+					li
+						a(href='/logout') Loggin in as #{email}
+				else
+					li(class=page === 'Login' ? 'active' : '')
+						a.navEl(href='/login') Login
+					li(class=page === 'register' ? 'active' : '')
+						a.navEl(href='/register') Register
