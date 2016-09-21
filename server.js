@@ -6,6 +6,8 @@ const {
   cyan, 
   red
 } = require('chalk')
+const session = require('express-session')
+const RedisStore = require('connect-redis')(session)
 
 const routes = require('./routes/') // same as ./routes/index.js
 const { connect } = require('./database')
@@ -16,6 +18,16 @@ const port = process.env.PORT || 3000
 app.set('port', port)
 
 // middlewares
+app.use(session({
+  store: new RedisStore(),
+  secret: 'superSecretKey'
+}))
+
+app.use((req, res, next) => {
+  app.locals.email = req.session.email
+  next()
+})
+
 app.use(({ method, url, headers: { 'user-agent': agent } }, res, next) => {
 	const timeStamp = new Date()
   console.log(`[${timeStamp}] "${cyan(`${method} ${url}`)}" "${agent}"`)
@@ -31,6 +43,8 @@ app.use(bodyParser.urlencoded({
 app.set('view engine', 'pug')
 
 app.locals.company = 'Pug Pizza'
+app.locals.errors = {}
+app.locals.body = {}
 
 // routes
 app.use(routes)
