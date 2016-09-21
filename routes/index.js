@@ -5,19 +5,19 @@ const bcrypt = require('bcrypt')
 
 const router = Router()
 
+const about = require('./about')
 const contact = require('./contact')
 const login = require('./login')
-const register = require('./register')
-const about = require('./about')
-const home = require('./home')
-const order = require('./order')
 const logout = require('./logout')
+const order = require('./order')
+const register = require('./register')
+const root = require('./root')
 
-router.use(home)
-router.use(login)
-router.use(register)
 router.use(about)
 router.use(contact)
+router.use(login)
+router.use(register)
+router.use(root)
 
 // guard middleware
 router.use((req, res, next) => {
@@ -28,7 +28,7 @@ router.use((req, res, next) => {
 	}
 })
 
-router.use(order)
 router.use(logout)
+router.use(order)
 
 module.exports = router
